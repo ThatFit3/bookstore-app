@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('title');
             $table->string('author');
             $table->string('synopsis');
+            $table->string('image')->nullable();
             $table->foreignId('type_id')->constrained();
             $table->foreignId('genre_id')->constrained();
         });
