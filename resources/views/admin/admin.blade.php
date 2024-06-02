@@ -45,7 +45,7 @@
                                 <label class="ms-3 text-lg">Cover:</label><br>
                                 <input type="file" name="cover" class="text-black text-sm rounded-lg focus:shadow-sm w-full p-2 px-4 bg-white">
                             </div>
-                            <button class="px-4 py-3 bg-[blue] rounded-md w-fit my-2">
+                            <button class="px-3 py-2 bg-[blue] rounded-md w-fit my-2">
                                 + Add book
                             </button>
                         </form>

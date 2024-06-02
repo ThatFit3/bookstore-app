@@ -13,7 +13,14 @@ class AdminController extends Controller
     function index(){
         $types = Type::all();
         $genres = Genre::all();
-        return view('admin', compact('types' , 'genres'));
+        {
+            if (Auth::check() && Auth::user()->is_admin == 1) {
+                return view('admin.admin', compact('types' , 'genres'));
+            } else {
+                return redirect()->route('dashboard');
+            }
+        }
+        
     }
 
     function create(Request $request){
