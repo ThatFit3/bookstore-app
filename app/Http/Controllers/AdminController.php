@@ -41,7 +41,7 @@ class AdminController extends Controller
         $book->image = 'storage/' . $file_name;
 
         $book->timestamps = false;
-
+        
         $book->save();
 
         return redirect()->route('admin');

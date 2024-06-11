@@ -15,7 +15,8 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained();
             $table->foreignId('book_id')->constrained();
-            $table->string('review');
+            $table->longText('review');
+            $table->integer('rating');
         });
     }
 

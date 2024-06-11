@@ -8,12 +8,17 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 text-gray-900 dark:text-gray-100">
+                <div class="p-6 py-8 text-gray-900 dark:text-gray-100 flex gap-10 justify-center">
                     @foreach($books as $book)
-                        <a href="details/{{ $book->id }}">{{ $book->title }}</a>
-                        <h1>{{ $book->author }}</h1>
-                        <h1>{{ $book->type->type_name }}</h1>
-                        <h1>{{ $book->genre->genre_name }}</h1>
+                        <x-card 
+                            image="{{ $book->image }}" 
+                            link="books/{{ $book->id }}" 
+                            title="{{ $book->title }}"
+                            author="{{ $book->author }}"
+                            type="{{ $book->type->type_name }}"
+                            genre="{{ $book->genre->genre_name }}"
+                            >
+                        </x-card>                        
                     @endforeach
                 </div>
             </div>

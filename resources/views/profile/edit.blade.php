@@ -19,11 +19,13 @@
                 </div>
             </div>
             
+            @if(Auth::user()->is_shop_owner == 0)
             <div class="p-4 sm:p-8 bg-white dark:bg-gray-800 shadow sm:rounded-lg">
                 <div class="max-w-xl">
                     @include('profile.partials.create-shop')
                 </div>
             </div>
+            @endif
             
             <div class="p-4 sm:p-8 bg-white dark:bg-gray-800 shadow sm:rounded-lg">
                 <div class="max-w-xl">
