@@ -32,19 +32,29 @@ Route::middleware(['auth', 'verified'])->group(function() {
     Route::put('/review/{book}', [ReviewController::class, 'update']);
     Route::delete('/review/{book}', [ReviewController::class, 'destroy']);
 
-    //shop's action
+    //shop's and order's action
+    Route::get('/order' , [ShopController::class, 'indexOrder'])->name('order');
+    Route::put('/order/{order}/shipped' , [ShopController::class, 'shipOrder']);
     Route::post('/shop' , [ShopController::class, 'create']);
+    Route::get('/shop' , [ShopController::class, 'indexShop'])->name('shop');
+    Route::delete('/shop/{item}/oof' , [ShopController::class, 'out']);
+    Route::patch('/shop/{item}/oof' , [ShopController::class, 'back']);
+    Route::put('/shop/{item}/edit' , [ShopController::class, 'edit']);
+    Route::put('/shop/{shop}' , [ShopController::class, 'editShop']);
+    Route::put('/shop/{shop}/add' , [ShopController::class, 'createItem']);
 
     Route::middleware(AdminMiddleware::class)->group(function() {
         Route::get('/admin', [AdminController::class, 'index'])->name('admin');
         Route::post('/admin', [AdminController::class, 'create']);
         Route::put('/admin/{book}', [AdminController::class, 'update'])->name('admin.edit');
-        Route::delete('/admin/{book}', [AdminController::class, 'destroy'])->name('admin.delete');
+        Route::delete('/admin/{book}/oof', [AdminController::class, 'destroy'])->name('admin.delete');
     });
 
     //purchases' action
-    Route::get('/purchase' , [PurchaseController::class, 'index']);
+    Route::get('/purchase' , [PurchaseController::class, 'index'])->name('purchase');
+    Route::get('/purchase/pending' , [PurchaseController::class, 'index'])->name('purchase.pending');
     Route::post('/purchase/{book}' , [PurchaseController::class, 'create']);
+    Route::put('/purchase/{purchase}/arrive' , [PurchaseController::class, 'purchaseArrive']);
 });
 // Route::middleware(['auth', 'verified'])->group(function() {
 // });

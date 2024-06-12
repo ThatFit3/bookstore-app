@@ -16,4 +16,8 @@ class ShopItem extends Model
     public function shop(){
         return $this->belongsTo(Shop::class);   
     }
+
+    public function purchase(){
+        return $this->hasMany(Purchase::class);
+    }
 }

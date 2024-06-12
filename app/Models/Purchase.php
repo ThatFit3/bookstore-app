@@ -9,11 +9,11 @@ class Purchase extends Model
 {
     use HasFactory;
 
-    public function buyer(){
+    public function user(){
         return $this->belongsTo(User::class);
     }
 
-    public function product(){
+    public function shopItem(){
         return $this->belongsTo(ShopItem::class);
     }
 }

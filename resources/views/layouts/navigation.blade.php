@@ -15,17 +15,22 @@
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
-                    <!-- <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                        {{ __('Dashboard') }}
-                    </x-nav-link> -->
+                    @if (Auth::user()->is_shop_owner == 0)
+                    <x-nav-link :href="route('purchase')" :active="request()->routeIs('purchase')">
+                        {{ __('Purchase') }}
+                    </x-nav-link>
+                    @endif
                     @if (Auth::user()->is_admin == 1)
                     <x-nav-link :href="route('admin')" :active="request()->routeIs('admin')">
                         {{ __('Admin') }}
                     </x-nav-link>
                     @endif
                     @if (Auth::user()->is_shop_owner == 1)
-                    <x-nav-link>
+                    <x-nav-link :href="route('shop')" :active="request()->routeIs('shop')">
                         {{ Auth::user()->shop->shop_name }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('order')" :active="request()->routeIs('order')">
+                        {{ __('Orders') }}
                     </x-nav-link>
                     @endif
                 </div>
@@ -88,6 +93,19 @@
                     {{ __('Admin') }}
                 </x-responsive-nav-link>
             @endif
+            @if (Auth::user()->is_shop_owner == 0)
+                <x-responsive-nav-link :href="route('purchase')" :active="request()->routeIs('purchase')">
+                    {{ __('Purchase') }}
+                </x-responsive-nav-link>
+                @endif
+                @if (Auth::user()->is_shop_owner == 1)
+                <x-responsive-nav-link :href="route('shop')" :active="request()->routeIs('shop')">
+                    {{ Auth::user()->shop->shop_name }}
+                </x-responsive-nav-link>
+                <x-responsive-nav-link :href="route('order')" :active="request()->routeIs('order')">
+                    {{ __('Orders') }}
+                </x-responsive-nav-link>
+            @endif
         </div>
 
         <!-- Responsive Settings Options -->
@@ -101,6 +119,7 @@
                 <x-responsive-nav-link :href="route('profile.edit')">
                     {{ __('Profile') }}
                 </x-responsive-nav-link>
+               
 
                 <!-- Authentication -->
                 <form method="POST" action="{{ route('logout') }}">

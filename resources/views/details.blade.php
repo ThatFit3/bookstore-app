@@ -92,7 +92,7 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 flex text-gray-900 dark:text-gray-100 flex-wrap">
-                    <div class="w-[30%] p-5">
+                    <div class="w-full md:w-[30%] p-5">
                         <div class="p-3 bg-gray-100 dark:bg-gray-900 rounded-lg">
                             <img src="{{ '../' . $book->image }}" alt="" class="w-full rounded-t-md" />
                             <x-primary-button class="mt-2 w-full rounded-t-none"
@@ -140,7 +140,7 @@
                             </div>
                         </x-modal>
                     </div>
-                    <div class="max-h-full w-[70%] p-8 pt-10">
+                    <div class="max-h-full w-full md:w-[70%] p-8 pt-10">
                         <div class="overflow-auto">
                             <h1 class="font-bold text-3xl">{{ html_entity_decode($book->title) }}</h1>
                             <h1 class="text-lg my-0 font-light italic mb-5">by: {{ $book->author }}</h1>

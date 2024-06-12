@@ -20,7 +20,7 @@
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 py-8 text-gray-900 dark:text-gray-100">
                     
-                    <div class="flex gap-10 justify-center mt-6">
+                    <div class="flex gap-10 justify-center mt-6 flex-wrap">
                     @foreach($books as $book)
                         <x-card 
                             image="{{ $book->image }}" 
