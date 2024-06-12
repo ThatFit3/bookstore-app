@@ -16,8 +16,9 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained();
             $table->foreignId('shop_item_id')->constrained();
             $table->integer('quantity');
-            $table->integer('time_of_purchase')->constrained();
-            
+            $table->timestamp('time_of_purchase')->nullable();
+            $table->boolean('pending')->default('0');          
+            $table->boolean('arrive')->default('0');          
         });
     }
 
