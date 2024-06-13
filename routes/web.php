@@ -47,7 +47,7 @@ Route::middleware(['auth', 'verified'])->group(function() {
         Route::get('/admin', [AdminController::class, 'index'])->name('admin');
         Route::post('/admin', [AdminController::class, 'create']);
         Route::put('/admin/{book}', [AdminController::class, 'update'])->name('admin.edit');
-        Route::delete('/admin/{book}/oof', [AdminController::class, 'destroy'])->name('admin.delete');
+        Route::delete('/admin/{book}', [AdminController::class, 'destroy'])->name('admin.delete');
     });
 
     //purchases' action
