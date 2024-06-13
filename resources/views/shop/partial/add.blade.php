@@ -22,7 +22,7 @@
                     @csrf
                     @method('PUT')
                     <input type="hidden" name="book" value="{{ $book->id }}" />
-                    <x-text-input name="price" type="boolean" class="p-2" placeholder="Price..." />
+                    <x-text-input name="price" type="decimal" class="p-2" placeholder="Price..." />
                     <x-primary-button class="mt-6 h-full">+ Add</x-primary-button>
                 </form>
             </div> 

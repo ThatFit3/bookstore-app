@@ -49,7 +49,7 @@
                                 @csrf
                                 @method('PUT')
                                 <x-input-label for="price" :value="__('Price')" />
-                                <x-text-input name="price" type="boolean" class="p-2" value="{{ $item->price }}" />
+                                <x-text-input name="price" type="decimal" class="p-2" value="{{ $item->price }}" />
                                 <div class="mt-6 flex justify-end">
                                     <x-secondary-button x-on:click="$dispatch('close')">
                                         {{ __('Cancel') }}
